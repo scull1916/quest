@@ -13,49 +13,52 @@
             }
         };
 
-        var gameScene = game.gameScene =
+    //scene instances code to go here
+    var gameScene = game.gameScene =
+        Object.create(scene);
+        gameScene.node = 
+            document.getElementById('game-scene');
+            gameScene.handleInput = function() {
+                document.getElementById('finish-btn').onclick = function() {
+                    game.flow.finishLevel();
+                };
+                document.getElementById('gameover-btn').onclick = function() {
+                    game.flow.gameOver();
+                };
+            };
+
+    var startScene = game.startScene = 
             Object.create(scene);
-            gameScene.node = 
-                document.getElementById('game-scene');
-                gameScene.handleInput = function() {
-                    document.getElementById('finish-btn').onclick = function() {
-                        game.flow.finishLevel();
-                    };
-                    document.getElementById('gameover-btn').onclick = function() {
-                        game.flow.gameOver();
+            startScene.node =
+                document.getElementById('start-scene');
+                startScene.handleInput = function() {
+                    document.getElementById('start-btn').onclick = function() {
+                        game.flow.nextLevel();
                     };
                 };
 
-        var startScene = game.startScene = 
-                Object.create(scene);
-                startScene.node =
-                    document.getElementById('start-scene');
-                    startScene.handleInput = function() {
-                        document.getElementById('start-btn').onclick = function() {
-                            game.flow.nextLevel();
-                        };
-                    };
-
-        var summaryScene = game.summaryScene = 
-                Object.create('scene');
-                summaryScene.node = 
-                    document.getElementById('summary-scene');
-                    summaryScene.handleInput = function() {
-                        document.getElementById('next-level-button').onclick = function() {
-                            game.flow.nextLevel();
-                        };
-                    };
-
-        var gameoverScene = game.gameoverScene =
-                Object.create(scene);
-                gameoverScene.node =
-                document.getElementById('gameover-scene');
-                gameoverScene.handleInput = function() {
-                    var scene = this;
-                    document.getElementById('back-to-menu-button').onclick = function() {
-                        game.flow.startOver();
+    var summaryScene = game.summaryScene = 
+            Object.create('scene');
+            summaryScene.node = 
+                document.getElementById('summary-scene');
+                summaryScene.handleInput = function() {
+                    document.getElementById('next-level-button').onclick = function() {
+                        game.flow.nextLevel();
                     };
                 };
+
+    var gameoverScene = game.gameoverScene =
+            Object.create(scene);
+            gameoverScene.node =
+            document.getElementById('gameover-scene');
+            gameoverScene.handleInput = function() {
+                var scene = this;
+                document.getElementById('back-to-menu-button').onclick = function() {
+                    game.flow.startOver();
+                };
+            };
+
+    
 }
-//scene instances code to go here
+
 ) ();
