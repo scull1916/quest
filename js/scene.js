@@ -25,6 +25,37 @@
                         game.flow.gameOver();
                     };
                 };
+
+        var startScene = game.startScene = 
+                Object.create(scene);
+                startScene.node =
+                    document.getElementById('start-scene');
+                    startScene.handleInput = function() {
+                        document.getElementById('start-btn').onclick = function() {
+                            game.flow.nextLevel();
+                        };
+                    };
+
+        var summaryScene = game.summaryScene = 
+                Object.create('scene');
+                summaryScene.node = 
+                    document.getElementById('summary-scene');
+                    summaryScene.handleInput = function() {
+                        document.getElementById('next-level-button').onclick = function() {
+                            game.flow.nextLevel();
+                        };
+                    };
+
+        var gameoverScene = game.gameoverScene =
+                Object.create(scene);
+                gameoverScene.node =
+                document.getElementById('gameover-scene');
+                gameoverScene.handleInput = function() {
+                    var scene = this;
+                    document.getElementById('back-to-menu-button').onclick = function() {
+                        game.flow.startOver();
+                    };
+                };
 }
 //scene instances code to go here
 ) ();
