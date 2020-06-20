@@ -19,8 +19,23 @@
         <section id="game">
 
             <div id="game-scene" class="scene out">
-                <a href="#" id="gameover-btn">Game Over</a>
-                <a href="#" id="finish-btn">Finish</a>
+                
+                <div id="stage">Stage One</div>
+                
+                <div id="quest" class="quest">
+                    <div id="quest-composition" class="composition">
+
+                    </div>
+                </div>
+                
+                <!-- to be removed -->
+                <!--<a href="#" id="gameover-btn">Game Over</a>
+                <a href="#" id="finish-btn">Finish</a>-->
+            </div>
+
+            <div id="element-template">
+                <!-- For composition view -->
+                <div class="pattern" data-pattern='1'></div>
             </div>
 
             <div id="start-scene" class="scene">
@@ -52,6 +67,9 @@
 
         <div id="element-template"></div>
 
+        <script src='js/patch.js'></script>
+        <script src='js/composition.js'></script>
+        <script src='js/quest.js'></script>
         <script src='js/scene.js'></script>
         <script src='js/game.js'></script>
     </body>
